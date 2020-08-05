@@ -17,4 +17,12 @@ class FoodTruck
       @inventory[item] = (check_stock(item) + quantity)
     end
   end
+
+  def potential_revenue
+    @inventory.map do |item, quantity|
+      # require "pry"; binding.pry
+      item.price * quantity
+    end.sum
+  end
+
 end
